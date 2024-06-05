@@ -23,9 +23,12 @@ import puppeteer from "puppeteer"; // Import puppeteer
 
   console.log("Page loaded completely, making API call...");
 
-  // Make the API call here
-  const requestBody =
-    "mode=primary&cli_time=1714879195539&servicename=ZohoCreator&service_language=en&serviceurl=https://academia.srmist.edu.in/portal/academia-academic-services/redirectFromLogin";
+  const cli_time = Date.now();
+  const servicename = "ZohoCreator";
+  const service_language = "en";
+  const serviceurl = encodeURIComponent("https://academia.srmist.edu.in/portal/academia-academic-services/redirectFromLogin");
+
+  const requestBody = `mode=primary&cli_time=${cli_time}&servicename=${servicename}&service_language=${service_language}&serviceurl=${serviceurl}`;
 
   const response = await fetch(
     "https://academia.srmist.edu.in/accounts/p/10002227248/signin/v2/lookup/dn9299@srmist.edu.in",
@@ -60,11 +63,12 @@ import puppeteer from "puppeteer"; // Import puppeteer
   );
 
   const data = await response.json();
-  console.log(data);
+  const digest =data.lookup.digest;
+  console.log(digest);
 
   const password = "DinesH@po12"; // This is the password to be submitted
   const passwordUrl =
-    "https://academia.srmist.edu.in/accounts/p/10002227248/signin/v2/primary/10063514052/password";
+    `https://academia.srmist.edu.in/accounts/p/10002227248/signin/v2/primary/10063514052/password?digest=${digest}&cli_time=${cli_time}&servicename=${servicename}&service_language=${service_language}&serviceurl=${serviceurl}`;
   const passwordBody = {
     passwordauth: {
       password: password,
