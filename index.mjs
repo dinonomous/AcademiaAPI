@@ -63,12 +63,13 @@ import puppeteer from "puppeteer"; // Import puppeteer
   );
 
   const data = await response.json();
-  const digest =data.lookup.digest;
+  const identifier = data.lookup.identifier;
+  const digest = data.lookup.digest;
   console.log(digest);
 
   const password = "DinesH@po12"; // This is the password to be submitted
   const passwordUrl =
-    `https://academia.srmist.edu.in/accounts/p/10002227248/signin/v2/primary/10063514052/password?digest=${digest}&cli_time=${cli_time}&servicename=${servicename}&service_language=${service_language}&serviceurl=${serviceurl}`;
+    `https://academia.srmist.edu.in/accounts/p/10002227248/signin/v2/primary/${identifier}/password?digest=${digest}&cli_time=${cli_time}&servicename=${servicename}&service_language=${service_language}&serviceurl=${serviceurl}`;
   const passwordBody = {
     passwordauth: {
       password: password,
@@ -106,4 +107,5 @@ import puppeteer from "puppeteer"; // Import puppeteer
 
   const passwordData = await passwordResponse.json();
   console.log(passwordData);
+
 })();
