@@ -1,5 +1,10 @@
+const username = "dn9299@SRMIST.edu.in"
+const password = "DinesH@po12"
+
+
+
 import fetch from "node-fetch";
-import puppeteer from "puppeteer"; // Import puppeteer
+import puppeteer from "puppeteer";
 
 (async () => {
   const preparePageForTests = async (page) => {
@@ -8,11 +13,7 @@ import puppeteer from "puppeteer"; // Import puppeteer
     await page.setUserAgent(userAgent);
   };
 
-  const browser = await puppeteer.launch({
-    args: ["--no-sandbox"],
-    headless: false,
-    devtools: true, // Enable DevTools
-  });
+  const browser = await puppeteer.launch();
   const page = await browser.newPage();
   await preparePageForTests(page);
 
@@ -31,7 +32,7 @@ import puppeteer from "puppeteer"; // Import puppeteer
   const requestBody = `mode=primary&cli_time=${cli_time}&servicename=${servicename}&service_language=${service_language}&serviceurl=${serviceurl}`;
 
   const response = await fetch(
-    "https://academia.srmist.edu.in/accounts/p/10002227248/signin/v2/lookup/dn9299@srmist.edu.in",
+    `https://academia.srmist.edu.in/accounts/p/10002227248/signin/v2/lookup/${username}`,
     {
       method: "POST",
       headers: {
@@ -67,7 +68,6 @@ import puppeteer from "puppeteer"; // Import puppeteer
   const digest = data.lookup.digest;
   console.log(digest);
 
-  const password = "DinesH@po12"; // This is the password to be submitted
   const passwordUrl =
     `https://academia.srmist.edu.in/accounts/p/10002227248/signin/v2/primary/${identifier}/password?digest=${digest}&cli_time=${cli_time}&servicename=${servicename}&service_language=${service_language}&serviceurl=${serviceurl}`;
   const passwordBody = {
