@@ -17,6 +17,10 @@ app.use(express.json());
 // Routes
 app.use('/api/users', userRoutes);
 app.use('/api/auth', authRoutes);
+app.get('/', (req, res) => {
+    console.log('Received request on /');
+    res.send('Hello, World!');
+});
 
 // Error Handling Middleware
 app.use(notFound);
