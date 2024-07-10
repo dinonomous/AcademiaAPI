@@ -5,5 +5,28 @@
       "username": "your_univ_mail_id",
       "password": "your_academia_password"
     }
-  }
+  },
+
+  "AcademiaAPI": [
+    {
+      "info": "Unified Time Table for B.Tech / M.Tech - Batch 1",
+      "api": "https://academia.srmist.edu.in/srm_university/academia-academic-services/page/Unified_Time_Table_2023_Batch_1"
+    },
+    {
+      "info": "Unified Time Table for B.Tech / M.Tech - Batch 2",
+      "api": "https://academia.srmist.edu.in/srm_university/academia-academic-services/page/Unified_Time_Table_2023_batch_2"
+    },
+    {
+      "info": "My Time Table AY 2024-25 ODD",
+      "api": "https://academia.srmist.edu.in/srm_university/academia-academic-services/page/My_Time_Table_2023_24"
+    },
+    {
+      "info": "Academic Status ( Attendence )",
+      "api": "https://academia.srmist.edu.in/srm_university/academia-academic-services/page/My_Attendance"
+    },
+    {
+      "info": "Academic Planner 2024 - 25 ODD",
+      "api": "https://academia.srmist.edu.in/srm_university/academia-academic-services/page/Academic_Planner_2024_25_ODD"
+    }
+  ]
 }
